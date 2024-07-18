@@ -17,44 +17,30 @@
 
 <body>
 <div class="container">
-
-
     <%- include('../../layout/header.ejs') %>
     <div class="row">
-
         <div class="col-md-2">
             <%- include('../../layout/navbar.ejs') %>
-
         </div>
+
         <div class="col-md-10">
-            <a class="btn btn-primary mb-2" href="/product-types/add">Thêm loại sản phẩm</a>
-            <table class="table table-light">
-                <thead class="table table-dark">
-                <tr>
-                    <td>ID</td>
-                    <td>TÊN LOẠI SẢN PHẨM</td>
-                    <td>TRẠNG THÁI</td>
-                    <td>ACTION</td>
-                </tr>
-                </thead>
-                <tbody>
-                <% data.forEach(item => {
-                %>
-                    <tr>
-                        <td><%= item.id %></td>
-                        <td><%= item.name %></td>
-                        <td><%= item.status %></td>
-                        <td>
-                            <a class="btn btn-info" href="product-types/detail/<%= item.id%>">Detail</a>
-                            <a class="btn btn-success" href="product-types/edit/<%= item.id%>">Edit</a>
-                            <a class="btn btn-danger" href="product-types/delete/<%= item.id%>">Delete</a>
-                        </td>
-                    </tr>
-                <%
-                })
-                %>
-                </tbody>
-            </table>
+            <form action="/product-types/edit/" method="post">
+                <div class="form-group">
+                    <labe for="id">ID loại sản phẩm</labe>
+                    <input type="text" name="id" id="id" value="<%= productType.id %>" readonly>
+                </div>
+
+                <div class="form-group">
+                    <labe for="name">Tên loại sản phẩm</labe>
+                    <input type="text" name="name" id="name" value="<%= productType.name %>">
+                </div>
+
+                <div class="form-group">
+                    <labe for="status">Trạng thái</labe>
+                    <input type="text" name="status" id="status" value="<%= productType.status %>">
+                </div>
+                <input class="btn btn-primary my-2" type="submit" value="Update">
+            </form>
         </div>
     </div>
     <%- include('../../layout/footer.ejs'); %>
