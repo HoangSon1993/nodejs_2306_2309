@@ -23,12 +23,12 @@ app.get("/product-types", (req, res) => {
   let sql = "SELECT * FROM product_types";
   mysqlClient.query(sql, (error, result) => {
     if (error) throw error;
-    res.render("page/product-types/index.ejs", { data: result });
+    res.render("page/products-types/index.ejs", { data: result });
   });
 });
 
 app.get("/product-types/add", (req, res) => {
-  res.render("page/product-types/add.ejs");
+  res.render("page/products-types/add.ejs");
 });
 
 app.post("/product-types/add", (req, res) => {
@@ -50,7 +50,7 @@ app.get("/product-types/detail/:id", (req, res) => {
              where id = ${id}`;
   mysqlClient.query(sql, (error, result) => {
     if (error) throw error;
-    res.render("page/product-types/detail.ejs", { productType: result[0] });
+    res.render("page/products-types/detail.ejs", { productType: result[0] });
   });
   // var conn = mysql.createConnection({
   //   host: 'localhost',
@@ -64,7 +64,7 @@ app.get("/product-types/detail/:id", (req, res) => {
   //   let sql = `SELECT * FROM product_types where id = ${id}`;
   //   conn.query(sql, (err, result)=>{
   //     if(err) throw err;
-  //     res.render('page/product-types/detail.ejs',{productType:result[0]})
+  //     res.render('page/products-types/detail.ejs',{productType:result[0]})
   //   })
   // })
 });
@@ -74,7 +74,7 @@ app.get('/product-types/edit/:id', (req, res)=>{
    let sql = 'SELECT * FROM product_types where id = ?'
   mysqlClient.query(sql, param, (error, result)=>{
       if(error) throw error;
-    res.render('page/product-types/edit.ejs',{"productType":result[0]})
+    res.render('page/products-types/edit.ejs',{"productType":result[0]})
   })
 })
 

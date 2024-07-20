@@ -11,13 +11,19 @@
 </head>
 <body>
 <div class="container">
-        <h1 class="text-center">Create Product Types</h1>
-        <form class="col-md-3 m-auto border border-2 border-black p-4" action="/product-types/create" method="POST">
+        <h1 class="text-center">Edit Product Types</h1>
+        <form class="col-md-3 m-auto border border-2 border-black p-4" action="/product-types/edit/<%= productType.id %>" method="POST">
+            <input type="hidden" name="id" value="<%= productType.id%>">
             <div class="form-group">
                 <label for="name">name</label>
-                <input class="form-control" type="text" name="name" id="name">
+                <input class="form-control" type="text" name="name" id="name" value="<%= productType.name%>">
             </div>
-            <input type="submit" value="Create" class="btn btn-primary my-2">
+            <div class="form-group">
+                <label for="status">Status</label>
+                <input type="checkbox" name="status" id="status" value="1"
+                        <%= productType.status == 1 ? 'checked' : '' %>>
+            </div>
+            <input type="submit" value="Edit" class="btn btn-primary my-2">
         </form>
     </div>
 

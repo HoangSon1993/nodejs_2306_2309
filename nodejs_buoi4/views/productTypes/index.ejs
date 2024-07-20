@@ -11,6 +11,7 @@
 <body>
     <div class="container">
         <h1 class="text-center"></h1>
+        <a class="btn btn-primary" href="/product-types/create">Create Product Type</a>
         <table class="table table-light">
             <thead class="table-dark">
             <tr>
@@ -28,9 +29,9 @@
                         <td><%= item.name %></td>
                         <td><%= item.status %></td>
                         <td>
-                            <a class="btn btn-success" href="#!">Detail</a>
-                            <a class="btn btn-warning" href="#!">Edit</a>
-                            <a class="btn btn-danger" href="#!">Delete</a>
+                            <a class="btn btn-success" href="/product-types/detail/<%= item.id%>">Detail</a>
+                            <a class="btn btn-warning" href="/product-types/edit/<%= item.id%>">Edit</a>
+                            <a class="btn btn-danger" href="/product-types/delete/<%= item.id%>">Delete</a>
                         </td>
                     </tr>
                 <%
